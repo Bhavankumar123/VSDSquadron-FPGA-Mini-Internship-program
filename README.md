@@ -225,8 +225,10 @@ Find the make file here --> [Makefile](https://github.com/thesourcerer8/VSDSquad
  
  2. Then, go to terminal, and enter the commands below. Also connect the board to the VM and verify using the command *lsusb* [if the board is connected, you will see the text "Future Technology Devices International"] .
     > cd
+    
     > cd VSDSquadron_FM
-    > cd uart_loopback
+    
+    > cd UART_loopback
  
  Then, your screen will look like the screenshot below.
  ![image](https://github.com/user-attachments/assets/87f284a7-a44a-4e70-a125-327b6fa15a59)
