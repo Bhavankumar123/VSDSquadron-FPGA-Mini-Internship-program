@@ -129,6 +129,8 @@ This Verilog module leverages an internal high-frequency oscillator to drive a f
  - **`hw_clk`**: External clock input for flexibility in timing.
  - **`testwire`**: Allows observation of internal signal behavior for debugging.
 
+https://github.com/user-attachments/assets/2fa75078-3658-4e98-a3b3-437508bd3498
+
 ---
 
 ## Step 3: Integrating with the VSDSquadron FPGA Mini Board
