@@ -161,7 +161,7 @@ Find the make file here --> [Makefile](https://github.com/thesourcerer8/VSDSquad
  
  ## Contents:
  ### Step 1: Study the Existing Code
- UART (Universal Asynchronous Receiver-Transmitter) is a hardware communication protocol used for serial communication between devices. It consists of two main data lines: the TX (Transmit) pin and the RX (Receive) pin. Specifically, a UART loopback mechanism is a test or diagnostic mode where data, which is transmitted to the TX (transmit) pin is directly routed back to the RX (receive) pin of the same module. This allows the system to verify that the TX and RX lines function correctly without the need of an external device. The existing code can be found [here](https://github.com/ojasvi-shah/VSDSquadron-FM-Research-Internship-by-Ojasvi-Shah/blob/main/UARTexistingcode.v). It is sourced from [this repository](https://github.com/thesourcerer8/VSDSquadron_FM/tree/main/uart_loopback). For the analysis of this code, expand or collapse:
+ UART (Universal Asynchronous Receiver-Transmitter) is a hardware communication protocol used for serial communication between devices. It consists of two main data lines: the TX (Transmit) pin and the RX (Receive) pin. Specifically, a UART loopback mechanism is a test or diagnostic mode where data, which is transmitted to the TX (transmit) pin is directly routed back to the RX (receive) pin of the same module. This allows the system to verify that the TX and RX lines function correctly without the need of an external device. The existing code can be found here --> (https://github.com/Bhavankumar123/VSDSquadron-FPGA-Mini-Internship-program/blob/main/UARTexistingcode.v). It is sourced from here --> (https://github.com/thesourcerer8/VSDSquadron_FM/tree/main/uart_loopback). For the analysis of this code, expand or collapse:
  
 #### Analysis of Existing Code
  
@@ -219,7 +219,7 @@ Find the make file here --> [Makefile](https://github.com/thesourcerer8/VSDSquad
  
  Steps to Transmit Code to FPGA Board
  
- 1. Create the following files ([Makefile](https://github.com/ojasvi-shah/VSDSquadron-FM-Research-Internship-by-Ojasvi-Shah/blob/main/Makefile2), [uart_trx](https://github.com/ojasvi-shah/VSDSquadron-FM-Research-Internship-by-Ojasvi-Shah/blob/main/UARTexistingcode.v) - verilog, [top module](https://github.com/ojasvi-shah/VSDSquadron-FM-Research-Internship-by-Ojasvi-Shah/blob/main/uart-top.v) - verilog, [pcf file](https://github.com/ojasvi-shah/VSDSquadron-FM-Research-Internship-by-Ojasvi-Shah/blob/main/UART.pcf)) in a folder under VSDSquadronFM. In this case, I have named it *uart_loopback*.
+ 1. Create the following files ([Makefile](https://github.com/Bhavankumar123/VSDSquadron-FPGA-Mini-Internship-program/blob/main/Makefile_2), [uart_trx](https://github.com/Bhavankumar123/VSDSquadron-FPGA-Mini-Internship-program/blob/main/UARTexistingcode.v) - verilog, [top module](https://github.com/Bhavankumar123/VSDSquadron-FPGA-Mini-Internship-program/blob/main/uart_top.v) - verilog, [pcf file](https://github.com/Bhavankumar123/VSDSquadron-FPGA-Mini-Internship-program/blob/main/UART.pcf)) in a folder under VSDSquadronFM. I have named it --> UART_loopback.
  
  ![image](https://github.com/user-attachments/assets/e1ad1ffd-def9-4119-ab07-b40db477ef51)
  
