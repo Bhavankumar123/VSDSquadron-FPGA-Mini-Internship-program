@@ -161,7 +161,7 @@ Find the make file here --> [Makefile](https://github.com/thesourcerer8/VSDSquad
  
  ## Contents:
  ### Step 1: Study the Existing Code
- UART (Universal Asynchronous Receiver-Transmitter) is a hardware communication protocol used for serial communication between devices. It consists of two main data lines: the TX (Transmit) pin and the RX (Receive) pin. Specifically, a UART loopback mechanism is a test or diagnostic mode where data, which is transmitted to the TX (transmit) pin is directly routed back to the RX (receive) pin of the same module. This allows the system to verify that the TX and RX lines function correctly without the need of an external device. The existing code can be found here --> (https://github.com/Bhavankumar123/VSDSquadron-FPGA-Mini-Internship-program/blob/main/UARTexistingcode.v). It is sourced from here --> (https://github.com/thesourcerer8/VSDSquadron_FM/tree/main/uart_loopback). For the analysis of this code, expand or collapse:
+ UART (Universal Asynchronous Receiver-Transmitter) is a hardware communication protocol used for serial communication between devices. It consists of two main data lines: the TX (Transmit) pin and the RX (Receive) pin. Specifically, a UART loopback mechanism is a test or diagnostic mode where data, which is transmitted to the TX (transmit) pin is directly routed back to the RX (receive) pin of the same module. This allows the system to verify that the TX and RX lines function correctly without the need of an external device. The existing code can be found here --> (https://github.com/Bhavankumar123/VSDSquadron-FPGA-Mini-Internship-program/blob/main/UARTexistingcode.v). It is sourced from here --> (https://github.com/thesourcerer8/VSDSquadron_FM/tree/main/uart_loopback).
  
 #### Analysis of Existing Code
  
@@ -268,3 +268,177 @@ Video demonstrating Loopback Functionality
  
  https://github.com/user-attachments/assets/443cf339-d2ac-45a5-885c-c1fdc74a46ed
   
+# Task 3: Developing a UART Transmitter Module
+## Objective: 
+Develop a UART transmitter module capable of sending serial data from the FPGA to an external device.
+## Contents:
+### Step 1: Study the Existing Code
+
+A UART transmitter module is a hardware component that enables serial communication from an FPGA to external devices by converting parallel data into sequential bits . This module serves as a fundamental interface for sending data between the FPGA and external devices such as computers, microcontrollers, or other electronic equipment. The code for this module can accessed here --> (https://github.com/Bhavankumar123/VSDSquadron-FPGA-Mini-Internship-program/tree/main/Task_3). It is sourced from this repository --> (https://github.com/thesourcerer8/VSDSquadron_FM/tree/main/uart_tx).
+
+### Module Analysis
+
+#### Module Overview
+This is a VHDL implementation of an 8N1 UART transmitter module designed for Field-Programmable Gate Arrays (FPGAs). The module handles asynchronous serial data transmission with specific parameters:
+- 8 data bits
+- No parity bit
+- 1 stop bit
+
+#### State Machine Operation
+1. **IDLE State (*STATE_IDLE*)**
+   - Maintains TX line high (idle condition)
+   - Waits for senddata trigger
+   - Resets txdone flag
+2. **STARTTX State (*STATE_STARTTX*)**
+   - Transmits start bit (logic low)
+   - Loads transmission buffer with txbyte
+   - Immediately transitions to *TXING* state
+3. **TXING State (*STATE_TXING*)**
+   - Sends data bits sequentially
+   - Shifts buffer right for next bit
+   - Counts transmitted bits (0-7)
+   - Continues until all 8 bits sent
+4. **TXDONE State (*STATE_TXDONE*)**
+   - Sends stop bit (logic high)
+   - Sets *txdone* flag
+   - Returns to IDLE state
+
+### Step 2: Design Documentation
+
+#### Block Diagram
+
+![image](https://github.com/user-attachments/assets/cca7a246-abb8-4d8a-a695-85d04eb5b15a)
+
+#### Circuit Diagram
+
+![image](https://github.com/user-attachments/assets/44ab6bc7-145c-4a0c-87e8-e98966497478)
+
+### Step 3: Implementation
+
+#### Steps to Transmit the Code
+
+1. Create the following [files](https://github.com/Bhavankumar123/VSDSquadron-FPGA-Mini-Internship-program/tree/main/Task_3) in a folder under VSDSquadron_FM.
+2. Then, open terminal and through the commands "cd"; "cd VSDSquadron_FM" and "cd uart_transmission" enter the folder "uart_transmission", where you have created the files.
+3. Post this, you may verify that the board is connected through "lsusb" command.
+4. After this, run "make build" and "sudo make flash".
+
+That is all. The code is transmitted.
+
+### Step 4: Testing and Verification
+
+#### Steps of Testing and Verification
+
+1. Install, and then open PuTTy.
+2. Verify that the correct port is connected through serial communication (COM 7 in my case)
+3. Then, check that a series of "D"s are generated and the RGB LED is blinking (switching between red, green and blue) .
+
+If so, you have successfully completed the task.
+
+### Step 5: Documentation
+
+#### UART Transmission in Operation
+
+https://github.com/user-attachments/assets/1da62013-2543-4feb-b6bd-689d24fed912
+
+#### Block and Circuit Diagram :
+
+![image](https://github.com/user-attachments/assets/cca7a246-abb8-4d8a-a695-85d04eb5b15a)
+
+![image](https://github.com/user-attachments/assets/44ab6bc7-145c-4a0c-87e8-e98966497478)
+
+# Task 4: Implementing a UART Transmitter that Sends Data Based on Sensor Inputs
+## Objective:
+Implement a UART transmitter that sends data based on sensor inputs, enabling the FPGA to communicate real-time sensor data to an external device.
+
+## Contents:
+### Step 1: Study the Existing Code
+
+#### Module Analysis
+
+#### Architecture Overview
+The *uart_tx_sense* module implements a complete **UART transmitter** designed specifically for **sensor data transmission**. The architecture consists of three main components:
+1. **Data Buffer Management**
+2. **UART Protocol Controller**
+3. **Transmission Control Logic**
+
+#### Operation Flow
+1. **Data Acquisition**
+- Sensor data arrives with valid signal assertion
+- Module captures data during IDLE state
+- 32-bit data buffer stores incoming sensor readings
+2. **Transmission Protocol**
+- *START*: Generates UART start bit (low)
+- *DATA*: Transmits 8 bits sequentially
+- *STOP*: Ensures proper termination with high bit
+3. **Status Indication**
+- *ready* signal indicates ability to accept new data
+- *tx_out* provides continuous UART stream
+- State transitions ensure reliable data transfer
+
+#### Port Analysis
+1. **Clock and Reset**
+- *clk*: Drives all sequential operations
+- *reset_n*: Active-low asynchronous reset
+2. **Data Interface**
+- *data*: 32-bit wide input for sensor readings
+- *valid*: Handshake signal indicating valid data
+3. **UART Interface**
+- *tx_out*: Serial output following UART protocol
+4. **Status Interface**
+- *ready*: Indicates module's ability to accept new data
+
+#### Internal Component Analysis
+1. **State Machine Controller**
+- Manages transmission protocol states
+- Controls data flow through the module
+- Ensures proper UART framing
+2. **Data Buffer**
+- Stores incoming sensor data
+- Provides data stability during transmission
+- Handles data synchronization
+3. **Transmission Controller**
+- Manages bit-by-bit transmission
+- Controls UART protocol timing
+- Handles start/stop bit generation
+</details>
+
+### Step 2: Design Documentation
+
+#### Block and Circuit Diagram
+
+![image](https://github.com/user-attachments/assets/86d868e5-3f3f-4c62-8c55-901ab252ea13)
+
+![image](https://github.com/user-attachments/assets/34a020a3-91ff-43dd-8fc8-39a092931793)
+
+### Step 3: Implementation
+
+#### Steps to Transmit the Code
+
+1. Create the following [files](https://github.com/Bhavankumar123/VSDSquadron-FPGA-Mini-Internship-program/tree/main/uart_tx_sense) in a folder under VSDSquadron_FM.
+2. Then, open terminal and through the commands "cd"; "cd VSDSquadron_FM" and "cd uart_transmission" enter the folder "uart_tx_sense", where you have created the files.
+3. Post this, you may verify that the board is connected through "lsusb" command.
+4. After this, run "make build" and "sudo make flash".
+
+### Step 4: Testing and Verification
+
+#### Steps of Testing and Verification
+
+1. Open PuTTy.
+2. Verify that the correct port is connected through serial communication (COM 7 in my case)
+3. Then, check that a series of "D"s are generated and the RGB LED is red.
+
+If so, you have successfully completed the task.
+
+### Step 5: Documentation
+
+#### Block and Circuit Diagrams:
+
+![image](https://github.com/user-attachments/assets/86d868e5-3f3f-4c62-8c55-901ab252ea13)
+
+![image](https://github.com/user-attachments/assets/e46df768-02aa-4daa-a115-b936e452d363)
+
+#### Video Demonstrating System Transmitting Data
+    
+https://github.com/user-attachments/assets/beabcf14-6793-4307-8e80-da8231b29e00
+
+> note: Here you cannot see the LED blinking as the time intervals between each 0 and 1 are very tiny
