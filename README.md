@@ -221,7 +221,7 @@ Find the make file here --> [Makefile](https://github.com/thesourcerer8/VSDSquad
  
  1. Create the following files ([Makefile](https://github.com/Bhavankumar123/VSDSquadron-FPGA-Mini-Internship-program/blob/main/Makefile_2), [uart_trx](https://github.com/Bhavankumar123/VSDSquadron-FPGA-Mini-Internship-program/blob/main/UARTexistingcode.v) - verilog, [top module](https://github.com/Bhavankumar123/VSDSquadron-FPGA-Mini-Internship-program/blob/main/uart_top.v) - verilog, [pcf file](https://github.com/Bhavankumar123/VSDSquadron-FPGA-Mini-Internship-program/blob/main/UART.pcf)) in a folder under VSDSquadronFM. I have named it --> UART_loopback.
  
- ![image](https://github.com/user-attachments/assets/e1ad1ffd-def9-4119-ab07-b40db477ef51)
+ ![Image](https://github.com/user-attachments/assets/ec577eba-3870-43f7-87aa-e97f466ca54a)
  
  2. Then, go to terminal, and enter the commands below. Also connect the board to the VM and verify using the command *lsusb* [if the board is connected, you will see the text "Future Technology Devices International"] .
     > cd
