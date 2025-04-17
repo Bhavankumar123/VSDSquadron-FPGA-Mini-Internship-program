@@ -359,7 +359,7 @@ Implement a UART transmitter that sends data based on sensor inputs, enabling th
 #### Module Analysis
 
 #### Architecture Overview
-The *UART_tx_sense* module implements a complete **UART transmitter** designed specifically for **sensor data transmission**. The architecture consists of three main components:
+The *uart_tx_sense* module implements a complete **UART transmitter** designed specifically for **sensor data transmission**. The architecture consists of three main components:
 1. **Data Buffer Management**
 2. **UART Protocol Controller**
 3. **Transmission Control Logic**
@@ -417,7 +417,7 @@ The *UART_tx_sense* module implements a complete **UART transmitter** designed s
 #### Steps to Transmit the Code
 
 1. Create the following [files](https://github.com/Bhavankumar123/VSDSquadron-FPGA-Mini-Internship-program/tree/main/uart_tx_sense) in a folder under VSDSquadron_FM.
-2. Then, open terminal and through the commands "cd"; "cd VSDSquadron_FM" and "cd uart_transmission" enter the folder "UART_tx_sense", where you have created the files.
+2. Then, open terminal and through the commands "cd"; "cd VSDSquadron_FM" and "cd uart_transmission" enter the folder "uart_tx_sense", where you have created the files.
 3. Post this, you may verify that the board is connected through "lsusb" command.
 4. After this, run "make build" and "sudo make flash".
 
