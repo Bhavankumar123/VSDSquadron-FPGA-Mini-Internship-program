@@ -2,13 +2,13 @@
 
 ### Task 1 - VSDSquadron FPGA Mini - Verilog and PCF Task Guide
 
-#### Objective
-To understand and document the provided Verilog code, create the necessary PCF file, and integrate the design with the VSDSquadron FPGA Mini board using the provided datasheet. (install tools as explained in datasheet) -  https://www.vlsisystemdesign.com/wp-content/uploads/2025/01/VSDSquadronFMDatasheet.pdf
+#### Model Overview
+This task involves analyzing and documenting the provided Verilog code, creating the necessary Physical Constraints File (PCF), and integrating the design with the VSDSquadron FPGA Mini board. The integration should follow the setup and installation procedures outlined in the official datasheet: https://www.vlsisystemdesign.com/wp-content/uploads/2025/01/VSDSquadronFMDatasheet.pdf
 
 ---
 
 ### Step 1: Understanding the Verilog Code
-- Access the Verilog code --> Find here https://github.com/thesourcerer8/VSDSquadron_FM/blob/main/led_blue/top.v
+- Access the Verilog code from the following link --> https://github.com/thesourcerer8/VSDSquadron_FM/blob/main/led_blue/top.v
  ```bash
  //----------------------------------------------------------------------------
  //                                                                          --
@@ -70,45 +70,48 @@ To understand and document the provided Verilog code, create the necessary PCF f
  endmodule
  ```
 
-- ### Model Review
-This Verilog module leverages an internal high-frequency oscillator to drive a frequency counter and control an RGB LED, with a dedicated test signal output for streamlined debugging.
+- ### Model Overview
+This Verilog module utilizes an internal high-frequency oscillator to operate a frequency counter and manage an RGB LED, while also providing a dedicated test output signal for simplified debugging.
 
-#### Input -
-   - `hw_clk`: Hardware oscillator clock input - unused within the module but reserved for optional external clocking.
-#### Output -
-   - `led_red`, `led_blue`, `led_green`: Signals to control an RGB LED.
-   - `testwire`: Debug signal sourced from the internal frequency counter.
- 
- #### Internal Components
- - **Internal Oscillator (`SB_HFOSC`)**: Generates the clock signal that drives the frequency counter.
-    - Purpose: This generates a stable internal clock signal
-    - Configuration: Uses CLKHF_DIV = "0b10" (binary 2) for clock division
-    - Control Signals:
-        1. *CLKHFPU = 1'b1* : Enables power-up
-        2. *CLKHFEN = 1'b1* : Enables oscillator
-        3. *CLKHF* : Output connected to internal *int_osc* signal
- 
- - **Frequency Counter**: A 28-bit counter that increments with each clock cycle - bit 5 (frequency_counter_i[5]) is used as a test signal output.
-    - Implementation: 28-bit register (*frequency_counter_i*)
-    - Operation: Increments on every positive edge of *int_osc*
-    - Test functionality: Bit 5 is routed to *testwire* for monitoring
-    - Purpose: Provides a way to verify oscillator operation and timing
+#### Input
+hw_clk: Hardware oscillator clock input (currently unused in the module; reserved for optional external clock sources).
 
- - **RGB LED Driver (`SB_RGBA_DRV`)**: Controls an RGB LED, with only the blue LED activated (`RGB2PWM = 1'b1`). The current settings are predefined.
-    - Configuration:
-        1. *RGBLEDEN = 1'b1* : Enables LED operation
-        2. *RGB0PWM = 1'b0* : Red LED minimum brightness
-        3. *RGB1PWM = 1'b0* : Green LED minimum brightness
-        4. *RGB2PWM = 1'b1* : Blue LED maximum brightness
-        5. *CURREN = 1'b1* : Enables current control
+#### Outputs -
+	- led_red, led_blue, led_green: Output signals used to control the RGB LED.
+	- testwire: A debug output connected to the internal frequency counter.
+
+#### Internal Components
+
+- **Internal Oscillator (SB_HFOSC)
+	- Function: Generates an internal clock signal to drive the frequency counter.
+	- Configuration:
+	- CLKHF_DIV = "0b10": Sets clock division factor (binary 2).
+	- Control signals:
+		1 CLKHFPU = 1'b1: Powers up the oscillator.
+	 2 CLKHFEN = 1'b1: Enables the oscillator.
+		3 *CLKHF* : Output connected to internal *int_osc* signal
+
+- **Frequency Counter
+
+	- Structure: A 28-bit register named frequency_counter_i.
+	- Operation: Increments on every rising edge of int_osc.
+	- Debug Use: Bit 5 (frequency_counter_i[5]) is routed to the testwire output.
+	- Purpose: Helps verify oscillator activity and monitor timing behavior.
+- **RGB LED Driver (SB_RGBA_DRV)
+	- Role: Drives the RGB LED outputs, with only the blue channel active.
    
-    - Current settings: All LEDs set to "0b000001" (minimum current)
-      
-    - Output connections:
-       1. *RGB0* → *led_red*
-       2. *RGB1* → *led_green*
-       3. *RGB2* → *led_blue*
- 
+	- Settings:
+		1 RGBLEDEN = 1'b1: Enables the LED driver.
+		2 RGB0PWM = 1'b0: Red LED set to off/minimum.
+		3 RGB1PWM = 1'b0: Green LED set to off/minimum.
+		4 RGB2PWM = 1'b1: Blue LED turned on.
+		5 CURREN = 1'b1: Enables current control circuitry.
+	- Current Configuration: All RGB channels set to "0b000001" (minimal current).
+
+	- Output Mappings:
+		1 RGB0 → led_red
+		2 RGB1 → led_green
+		3 RGB2 → led_blue
  ## Step 2: Creating the PCF File
  
  - Access the PCF File --> Find Here [VSDSquadronFM.pcf](https://github.com/thesourcerer8/VSDSquadron_FM/blob/main/led_blue/VSDSquadronFM.pcf)
@@ -124,34 +127,34 @@ This Verilog module leverages an internal high-frequency oscillator to drive a f
  
  Cross-reference these pin assignments with the VSDSquadron FPGA Mini board datasheet to verify correctness.
  [Datasheet](https://www.vlsisystemdesign.com/wp-content/uploads/2025/01/VSDSquadronFMDatasheet.pdf)
- ### Significance of Connections
- - **RGB LEDs**: Connected to FPGA output pins to enable color control.
- - **`hw_clk`**: External clock input for flexibility in timing.
- - **`testwire`**: Allows observation of internal signal behavior for debugging.
-
-https://github.com/user-attachments/assets/2fa75078-3658-4e98-a3b3-437508bd3498
+ #### Significance of Connections
+ - **RGB LEDs**: Connected to the FPGA output pins for color control.
+ - **hw_clk**: External clock input to provide flexibility in timing.
+ - **testwire**: Provides insight into internal signal behavior for debugging purposes.
 
 ---
 
 ## Step 3: Integrating with the VSDSquadron FPGA Mini Board
- 
- ### Reviewing the Datasheet
-Consult the VSDSquadron FPGA Mini board datasheet to explore:
-- Key features and pin configurations
-- Signal routing and board-level connections
- 
- ### Connecting the Board
- - Use a USB-C cable to connect the FPGA board to your computer.
- - Verify that the FTDI interface is correctly detected.
- 
- ### Building and Flashing the Verilog Code
-Find the make file here --> [Makefile](https://github.com/thesourcerer8/VSDSquadron_FM/blob/main/led_blue/Makefile)
- 
- #### Steps to Program the FPGA:
- 1. Run `make clean` to clear previous builds.
- 2. Run `make build` to compile the design.
- 3. Run `sudo make flash` to program the FPGA.
- 4. Observe the RGB LED behavior to confirm successful programming. 
+
+### Reviewing the Datasheet
+Consult the datasheet of the VSDSquadron FPGA Mini board to review:
+- Key features and pin configurations.
+- Signal routing and board-level connections.
+
+### Connecting the Board
+- Use a USB-C cable to connect the FPGA board to your computer.
+- Ensure that the FTDI interface is detected correctly.
+
+### Building and Flashing the Verilog Code
+You can find the makefile here: Makefile
+
+#### Steps to Program the FPGA:
+1. Run make clean to clear any previous builds.
+2. Run make build to compile the design.
+3.Run sudo make flash to program the FPGA.
+4. Observe the RGB LED behavior to confirm that the FPGA has been successfully programmed.
+
+https://github.com/user-attachments/assets/2fa75078-3658-4e98-a3b3-437508bd3498
  
 ---
 
@@ -229,15 +232,20 @@ Find the make file here --> [Makefile](https://github.com/thesourcerer8/VSDSquad
     > cd VSDSquadron_FM
     
     > cd UART_loopback
+    
+    > lsusb 
  
  Then, your screen will look like the screenshot below.
- ![image](https://github.com/user-attachments/assets/87f284a7-a44a-4e70-a125-327b6fa15a59)
+ ![Image](https://github.com/user-attachments/assets/00fbe780-f2d1-4ce8-8141-50569b26b08a)
  
- 3. After this, run the commands "make build", and "sudo make flash". Then, your screen will look like:
+ 3. After this, run the commands
+    > make build
+    
+    > sudo make flash
+    
+ Then, your screen will look like:
  ![image](https://github.com/user-attachments/assets/91c7c341-c19a-4add-a5fb-5f8529cc54eb)
  
- That is it. You have successfully finished transmitting the code.
-
  ### Step 4: Testing and Verification
  
  Testing and Verification
