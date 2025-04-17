@@ -334,7 +334,7 @@ That is all. The code is transmitted.
 ### Step 4: Testing and Verification
 
 1. Install, and then open PuTTy.
-2. Verify that the correct port is connected through serial communication (COM 7 in my case)
+2. Verify that the correct port is connected through serial communication (COM 6 in my case)
 3. Then, check that a series of "D"s are generated and the RGB LED is blinking (switching between red, green and blue) .
 
 ### Step 5: Documentation
@@ -426,7 +426,7 @@ The *uart_tx_sense* module implements a complete **UART transmitter** designed s
 #### Steps of Testing and Verification
 
 1. Open PuTTy.
-2. Verify that the correct port is connected through serial communication (COM 7 in my case)
+2. Verify that the correct port is connected through serial communication (COM 64 in my case)
 3. Then, check that a series of "D"s are generated and the RGB LED is red.
 
 ### Step 5: Documentation
