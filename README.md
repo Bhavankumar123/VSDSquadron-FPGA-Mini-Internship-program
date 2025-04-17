@@ -278,34 +278,37 @@ Develop a UART transmitter module capable of sending serial data from the FPGA t
 ## Contents:
 ### Step 1: Study the Existing Code
 
-A UART transmitter module is a hardware component that enables serial communication from an FPGA to external devices by converting parallel data into sequential bits . This module serves as a fundamental interface for sending data between the FPGA and external devices such as computers, microcontrollers, or other electronic equipment. The code for this module can accessed here --> (https://github.com/Bhavankumar123/VSDSquadron-FPGA-Mini-Internship-program/tree/main/Task_3). It is sourced from this repository --> (https://github.com/thesourcerer8/VSDSquadron_FM/tree/main/uart_tx).
+A UART transmitter module is a hardware component that enables serial communication from an FPGA to external devices by converting parallel data into sequential bits . This module serves as a fundamental interface for sending data between the FPGA and external devices such as computers, microcontrollers, or other electronic equipment. The code for this module can accessed here --> https://github.com/Bhavankumar123/VSDSquadron-FPGA-Mini-Internship-program/tree/main/Task_3. It is sourced from this repository --> https://github.com/thesourcerer8/VSDSquadron_FM/tree/main/uart_tx.
 
 ### Module Analysis
 
 #### Module Overview
-This is a VHDL implementation of an 8N1 UART transmitter module designed for Field-Programmable Gate Arrays (FPGAs). The module handles asynchronous serial data transmission with specific parameters:
+This is a VHDL implementation of an 8N1 UART transmitter designed for FPGAs. It handles asynchronous serial data transmission with the following configuration:
 - 8 data bits
 - No parity bit
 - 1 stop bit
 
 #### State Machine Operation
-1. **IDLE State (*STATE_IDLE*)**
-   - Maintains TX line high (idle condition)
-   - Waits for senddata trigger
-   - Resets txdone flag
-2. **STARTTX State (*STATE_STARTTX*)**
-   - Transmits start bit (logic low)
-   - Loads transmission buffer with txbyte
-   - Immediately transitions to *TXING* state
-3. **TXING State (*STATE_TXING*)**
-   - Sends data bits sequentially
-   - Shifts buffer right for next bit
-   - Counts transmitted bits (0-7)
-   - Continues until all 8 bits sent
-4. **TXDONE State (*STATE_TXDONE*)**
-   - Sends stop bit (logic high)
-   - Sets *txdone* flag
-   - Returns to IDLE state
+1. **IDLE State (STATE_IDLE)**
+- Maintains TX line high (idle condition)
+- Waits for senddata trigger
+- Resets txdone flag
+
+2. **STARTTX State (STATE_STARTTX)**
+- Transmits start bit (logic low)
+- Loads transmission buffer with txbyte
+- Immediately transitions to TXING state
+
+3. **TXING State (STATE_TXING)**
+- Sends data bits sequentially
+- Shifts buffer right for next bit
+- Counts transmitted bits (0–7)
+- Continues until all 8 bits are sent
+
+4. **TXDONE State (STATE_TXDONE)**
+- Sends stop bit (logic high)
+- Sets txdone flag
+- Returns to IDLE state
 
 ### Step 2: Design Documentation
 
