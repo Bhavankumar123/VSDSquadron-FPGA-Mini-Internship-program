@@ -244,7 +244,7 @@ https://github.com/user-attachments/assets/2fa75078-3658-4e98-a3b3-437508bd3498
     > sudo make flash
     
  Then, your screen will look like:
- ![image](https://github.com/user-attachments/assets/91c7c341-c19a-4add-a5fb-5f8529cc54eb)
+ ![Image](https://github.com/user-attachments/assets/2a573e90-e7a8-4203-8ab2-0df9072f4cac)
  
  ### Step 4: Testing and Verification
  
