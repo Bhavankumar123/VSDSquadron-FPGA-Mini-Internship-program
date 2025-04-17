@@ -254,11 +254,7 @@ https://github.com/user-attachments/assets/2fa75078-3658-4e98-a3b3-437508bd3498
  
  2. Open Docklight - and verify that your system (not the VM) is connected to the right communication port - in my case it is COM7 and the default was COM1 - and if not, change it through tools > project settings. Also verify that speed is set to 9600.
  
- ![image](https://github.com/user-attachments/assets/467c3207-0137-45a8-8a53-1e1103269d2b)
- 
- 3. Then, you may double click on the small blue box below name in send sequences and enter a name, select a format and then type your message. Post this, click "Apply" and then verify that this has entered in send sequences. Then, click the arrow beside the name and verify the result is as follows:
- 
- ![image](https://github.com/user-attachments/assets/47a7f864-2fa9-458e-9380-3b264b0f8904)
+ 3. Then, you may double click on the small blue box below name in send sequences and enter a name, select a format and then type your message. Post this, click "Apply" and then verify that this has entered in send sequences. Then, click the arrow beside the name and verify the result.
  
  ### Step 5: Documentation
  
@@ -274,7 +270,7 @@ https://github.com/user-attachments/assets/2fa75078-3658-4e98-a3b3-437508bd3498
  
 Video demonstrating Loopback Functionality
  
- https://github.com/user-attachments/assets/443cf339-d2ac-45a5-885c-c1fdc74a46ed
+https://github.com/user-attachments/assets/8a3fa89f-49ba-4c42-a519-6b057bce6cab
   
 # Task 3: Developing a UART Transmitter Module
 ## Objective: 
