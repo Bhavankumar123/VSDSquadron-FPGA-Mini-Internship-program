@@ -403,7 +403,6 @@ The *uart_tx_sense* module implements a complete **UART transmitter** designed s
 - Manages bit-by-bit transmission
 - Controls UART protocol timing
 - Handles start/stop bit generation
-</details>
 
 ### Step 2: Design Documentation
 
@@ -429,8 +428,6 @@ The *uart_tx_sense* module implements a complete **UART transmitter** designed s
 1. Open PuTTy.
 2. Verify that the correct port is connected through serial communication (COM 7 in my case)
 3. Then, check that a series of "D"s are generated and the RGB LED is red.
-
-If so, you have successfully completed the task.
 
 ### Step 5: Documentation
 
