@@ -326,13 +326,9 @@ That is all. The code is transmitted.
 
 ### Step 4: Testing and Verification
 
-#### Steps of Testing and Verification
-
 1. Install, and then open PuTTy.
 2. Verify that the correct port is connected through serial communication (COM 7 in my case)
 3. Then, check that a series of "D"s are generated and the RGB LED is blinking (switching between red, green and blue) .
-
-If so, you have successfully completed the task.
 
 ### Step 5: Documentation
 
