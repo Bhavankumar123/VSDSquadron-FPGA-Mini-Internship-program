@@ -439,6 +439,6 @@ The *uart_tx_sense* module implements a complete **UART transmitter** designed s
 
 #### Video Demonstrating System Transmitting Data
     
-https://github.com/user-attachments/assets/beabcf14-6793-4307-8e80-da8231b29e00
+https://github.com/user-attachments/assets/2960c9a1-985c-49cc-9d47-1166a2c4a903
 
 > note: Here you cannot see the LED blinking as the time intervals between each 0 and 1 are very tiny
