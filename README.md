@@ -359,56 +359,59 @@ https://github.com/user-attachments/assets/c0ae2d22-7b22-439d-a75a-ba3b6db8431a
 ## Objective:
 Implement a UART transmitter that sends data based on sensor inputs, enabling the FPGA to communicate real-time sensor data to an external device.
 
-## Contents:
+## Contents
 ### Step 1: Study the Existing Code
-
 #### Module Analysis
-
 #### Architecture Overview
-The *uart_tx_sense* module implements a complete **UART transmitter** designed specifically for **sensor data transmission**. The architecture consists of three main components:
-1. **Data Buffer Management**
-2. **UART Protocol Controller**
-3. **Transmission Control Logic**
+The uart_tx_sense module implements a fully functional UART transmitter tailored for transmitting sensor data. It is structured around three core architectural blocks:
+--> Data Buffer Management
+--> UART Protocol Controller
+--> Transmission Control Logic
 
 #### Operation Flow
 1. **Data Acquisition**
-- Sensor data arrives with valid signal assertion
-- Module captures data during IDLE state
-- 32-bit data buffer stores incoming sensor readings
+- Captures sensor data when valid signal is asserted
+- ccepts data during the IDLE state
+- Stores readings in a 32-bit internal buffer
+
 2. **Transmission Protocol**
-- *START*: Generates UART start bit (low)
-- *DATA*: Transmits 8 bits sequentially
-- *STOP*: Ensures proper termination with high bit
+- *START* : Sends a low start bit
+- *DATA* : Transmits 8 bits in sequence
+- *STOP* : Ends transmission with a high bit
+
 3. **Status Indication**
-- *ready* signal indicates ability to accept new data
-- *tx_out* provides continuous UART stream
-- State transitions ensure reliable data transfer
+- *ready* signal indicates data can be received
+- *tx_out* carries continuous UART stream
+- Controlled state transitions ensure smooth data flow
 
 #### Port Analysis
 1. **Clock and Reset**
-- *clk*: Drives all sequential operations
+- *clk*: System clock input
 - *reset_n*: Active-low asynchronous reset
+
 2. **Data Interface**
-- *data*: 32-bit wide input for sensor readings
-- *valid*: Handshake signal indicating valid data
+- *data*: 32-bit input from sensor
+- *valid*: Indicates valid data is present
+
 3. **UART Interface**
-- *tx_out*: Serial output following UART protocol
+- *tx_out*: Serial output conforming to UART format
+
 4. **Status Interface**
-- *ready*: Indicates module's ability to accept new data
+- *ready*: Signals readiness to receive new data
 
 #### Internal Component Analysis
 1. **State Machine Controller**
-- Manages transmission protocol states
-- Controls data flow through the module
-- Ensures proper UART framing
+- Governs transition between UART states
+- Directs data sequencing and protocol framing
+
 2. **Data Buffer**
-- Stores incoming sensor data
-- Provides data stability during transmission
-- Handles data synchronization
+- Temporarily holds incoming sensor data
+- Maintains consistency during transmission
+
 3. **Transmission Controller**
-- Manages bit-by-bit transmission
-- Controls UART protocol timing
-- Handles start/stop bit generation
+- Sends data bit by bit
+- Generates appropriate timing for UART
+- Manages start and stop bit control
 
 ### Step 2: Design Documentation
 
@@ -451,7 +454,7 @@ https://github.com/user-attachments/assets/2960c9a1-985c-49cc-9d47-1166a2c4a903
 
 # Task 5 and 6: Real-Time Sensor Data Acquisition and Transmission System
 ## Objective:
-
+This theme revolves around building systems that interface with multiple sensors to gather data, process it within the FPGA, and communicate the results to external devices using protocols like UART. The implementation is structured through the following steps:
 1. Conduct comprehensive research on the chosen theme.​
 2. Formulate a detailed project proposal outlining the system's functionality, required components, and implementation strategy.
 3. Execute the project plan by developing, testing, and validating the system.​
@@ -460,8 +463,6 @@ https://github.com/user-attachments/assets/2960c9a1-985c-49cc-9d47-1166a2c4a903
 ### Step 1: Literature Review
 
 **Existing Projects and Resources:** I referenced [this article](https://www.engineersgarage.com/arduino-touchless-bell-push-hc-sr04-buzzer/) from Engineers Garage, written by Nikhil Agnihotri.
-
- </details>
  
  ### Step 2: Define System Requirements
  
