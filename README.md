@@ -341,7 +341,7 @@ That is all. The code is transmitted.
 
 #### UART Transmission in Operation
 
-https://github.com/user-attachments/assets/1da62013-2543-4feb-b6bd-689d24fed912
+https://github.com/user-attachments/assets/c0ae2d22-7b22-439d-a75a-ba3b6db8431a
 
 #### Block and Circuit Diagram :
 
