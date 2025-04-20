@@ -160,6 +160,7 @@ You can find the makefile here: Makefile
 3.Run sudo make flash to program the FPGA.
 4. Observe the RGB LED behavior to confirm that the FPGA has been successfully programmed.
 
+
 https://github.com/user-attachments/assets/2fa75078-3658-4e98-a3b3-437508bd3498
  
 ---
@@ -483,6 +484,8 @@ Personally, I have a lot of experience in arduino and know how to code pretty we
 
    ![Image](https://github.com/user-attachments/assets/6828d24b-3608-4e3a-aa38-cdd194e7c84d)
 
-4. Open docklight and choose serial communication with 9600 BAUDS and 1 stop bit. Ensure that the correct port is connected
+4. Final Testing
+   https://github.com/user-attachments/assets/f5eecfcf-8b0d-4e0b-81c0-64b29f56c7c5
+   
 
 
