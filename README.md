@@ -1,6 +1,6 @@
 # VSDSquadron-FPGA-Mini-Internship-program
 
-Before diving in, once you install Virtual box and set it up and upload your vdi do this --> click on your FPGA vdi once --> Go to settings --> Go to general --> click Advanced --> make Shared Clipboard and Drag and drop bidirectional
+Before diving in, once you install Virtual box and set it up and upload your vdi, do this --> click on your FPGA vdi once --> Go to settings --> Go to general --> click Advanced --> make Shared Clipboard and Drag and drop bidirectional
 
 ![Image](https://github.com/user-attachments/assets/778feec6-99f6-4fd1-b2dc-f1e090153b98)
 
