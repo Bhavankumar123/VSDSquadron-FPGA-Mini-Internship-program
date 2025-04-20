@@ -466,7 +466,7 @@ Personally, I have a lot of experience in arduino and know how to code pretty we
  
  ### Step 2: Define System Requirements
  
- **Necessary Hardware Components and Software Tools:**   For this project we need --> an LED( Light Emitting diode ), an HC-SR04 ultrasonic sensor, a programming board ( VSDSquadron FPGA Mini ), connecting wires and [docklight](https://docklight.de/)(Software)
+ **Necessary Hardware Components and Software Tools:**   For this project we need --> an LED( Light Emitting diode ), an HC-SR04 ultrasonic sensor, a programming board ( VSDSquadron FPGA Mini ) and connecting wires.
  
  ### Step 3: Design System Architecture
 **Block Diagrams:**
@@ -484,4 +484,5 @@ Personally, I have a lot of experience in arduino and know how to code pretty we
    ![Image](https://github.com/user-attachments/assets/6828d24b-3608-4e3a-aa38-cdd194e7c84d)
 
 4. Open docklight and choose serial communication with 9600 BAUDS and 1 stop bit. Ensure that the correct port is connected
-5. Then, test with your hand or another object. If the hand/object approaches the sensor at a distance closer than 5 cm, the LED will Glow. You can verify the distance through docklight.
+
+
