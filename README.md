@@ -452,7 +452,7 @@ https://github.com/user-attachments/assets/2960c9a1-985c-49cc-9d47-1166a2c4a903
 
 > note: Here you cannot see the LED blinking as the time intervals between each 0 and 1 are very tiny
 
-# Task 5 and 6: Real-Time Sensor Data Acquisition and Transmission System
+# Task 5: Real-Time Sensor Data Acquisition and Transmission System
 ## Objective:
 This theme revolves around building systems that interface with multiple sensors to gather data, process it within the FPGA, and communicate the results to external devices using protocols like UART. The implementation is structured through the following steps:
 1. Conduct comprehensive research on the chosen theme.​
@@ -462,11 +462,11 @@ This theme revolves around building systems that interface with multiple sensors
 
 ### Step 1: Literature Review
 
-**Existing Projects and Resources:** I referenced [this article](https://www.engineersgarage.com/arduino-touchless-bell-push-hc-sr04-buzzer/) from Engineers Garage, written by Nikhil Agnihotri.
+Personally, I have a lot of experience in arduino and know how to code pretty well, I made this project on my own after looking at this. This is an Automatic LED Lighting system that can turn the led on whenever it detects motion.
  
  ### Step 2: Define System Requirements
  
- **Necessary Hardware Components and Software Tools:**   For this project, a buzzer, an HC-SR04 ultrasonic sensor and connecting wires in the form of hardware components are required. For software tools, only [docklight](https://docklight.de/) is required.
+ **Necessary Hardware Components and Software Tools:**   For this project we need --> an LED( Light Emitting diode ), an HC-SR04 ultrasonic sensor, a programming board ( VSDSquadron FPGA Mini ), connecting wires and [docklight](https://docklight.de/)(Software)
  
  ### Step 3: Design System Architecture
 **Block Diagrams:**
@@ -477,11 +477,11 @@ This theme revolves around building systems that interface with multiple sensors
 
  ### Step 4: Implementation
 
-1. Write the code found [here](https://github.com/ojasvi-shah/VSDSquadron-FM-Research-Internship-by-Ojasvi-Shah/tree/main/task6) in a folder named *Automatic_led* under the main *VSDSquadron_FM* folder.
+1. Write the code found [here](https://github.com/Bhavankumar123/VSDSquadron-FPGA-Mini-Internship-program/tree/main/Automatic_led) in a folder named *Automatic_led* under the main *VSDSquadron_FM* folder.
 2. Then through *make build* and *sudo make flash* flash the code to the FPGA.
 3. Then connect the components as follows:
 
    ![Image](https://github.com/user-attachments/assets/2143e2b0-603f-4523-bdbd-51167e0c554a)
 
 4. Open docklight and choose serial communication with 9600 BAUDS and 1 stop bit. Ensure that the correct port is connected
-5. Then, test with your hand or another object. If the hand/object approaches the sensor at a distance closer than 5 cm, the buzzer will beep. You can verify the distance through docklight.
+5. Then, test with your hand or another object. If the hand/object approaches the sensor at a distance closer than 5 cm, the LED will Glow. You can verify the distance through docklight.
