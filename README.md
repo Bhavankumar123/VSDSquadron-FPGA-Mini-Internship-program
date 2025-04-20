@@ -453,7 +453,7 @@ https://github.com/user-attachments/assets/2960c9a1-985c-49cc-9d47-1166a2c4a903
 
 > note: Here you cannot see the LED blinking as the time intervals between each 0 and 1 are very tiny
 
-# Task 5: Real-Time Sensor Data Acquisition and Transmission System
+# Task 5, Task 6: Real-Time Sensor Data Acquisition and Transmission System
 ## Objective:
 This theme revolves around building systems that interface with multiple sensors to gather data, process it within the FPGA, and communicate the results to external devices using protocols like UART. The implementation is structured through the following steps:
 1. Conduct comprehensive research on the chosen theme.​
@@ -487,6 +487,3 @@ Personally, I have a lot of experience in arduino and know how to code pretty we
 4. Final Testing
    
    https://github.com/user-attachments/assets/f5eecfcf-8b0d-4e0b-81c0-64b29f56c7c5
-   
-
-
