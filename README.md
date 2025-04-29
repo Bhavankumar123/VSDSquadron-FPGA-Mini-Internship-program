@@ -487,3 +487,7 @@ Personally, I have a lot of experience in arduino and know how to code pretty we
 4. Final Testing
    
 https://drive.google.com/file/d/1dVNd23Lxyn6L3FxORVVGXHRgmkonGv4k/view?usp=sharing
+
+# Extra project
+
+I have done an extra project on Rain Detector with the VSDSquadron FPGA Mini Board. You can Check it out here :- https://github.com/Bhavankumar123/Rain-detector-with-VSDSquadron-FPGA-Mini
